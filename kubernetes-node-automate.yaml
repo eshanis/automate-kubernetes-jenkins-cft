@@ -16,6 +16,7 @@ Resources:
                 PublicAccessCidrs: [ "0.0.0.0/0" ]
     EKSNodegroup:
       Type: 'AWS::EKS::Nodegroup'
+      DependsOn: EKSCluster
       Properties:
         ClusterName: eshani-cluster-node
         NodegroupName: eshani-node
@@ -30,14 +31,3 @@ Resources:
         Subnets:
           - subnet-0a31af885cfd8721d
           - subnet-01b356a04735bdf93
-#NodeGroup:
-        #Type: AWS::EKS::Nodegroup
-        #Properties:
-            #AmiType: AL2_x86_64
-            #ClusterName: eshani-cluster-node
-            #NodegroupName: eshani-node
-            #NodeRole: "arn:aws:iam::388328004932:role/eks-node-group"
-            # from documentation: NodeRole: 'arn:aws:iam::012345678910:role/eksInstanceRole'
-            #Subnets: 
-                #- subnet-0a31af885cfd8721d
-                #- subnet-01b356a04735bdf93--
